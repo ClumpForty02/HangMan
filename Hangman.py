@@ -1,70 +1,14 @@
 import random
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
-
 def hang_man():
-    word_list= ["banana", "hyundai", "mountains", "sheep", "awestruck", "cantaloupe"]
+    from Hangman_words import word_list
     chosen= random.choice(word_list)
 
     display=[]
     word_length= len(chosen)
 
     lives=6
+    from Hangman_Art import logo
 
     # for letter in chosen:
     #     if letter==guess:
@@ -92,12 +36,16 @@ def hang_man():
             if lives== 0:
                 end_of_game= True
                 print("You lose")
+                print("The given word was: ", chosen)
 
         print(display)
 
         if "_" not in display:
             end_of_game= True
             print("You Win!")
+
+        from Hangman_Art import stages
+        print(stages[lives])
 
     
 
